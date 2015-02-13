@@ -11,12 +11,14 @@
 #include <ostream>
 #include "OrdenamientoGenerico.h"
 #include "Book.h"
+
 std::string get_string_attribute(std::string);
 int get_int_attribute(std::string);
 void print_all(int, Book[]);
 void print_string(std::string);
 void find_before(int, int, Book[]);
 void find_after(int, int, Book[]);
+void find_between(int, int, int, Book[]);
 
 int main(int argc, const char * argv[]) {
     int opcion_menu= 1;
@@ -36,8 +38,11 @@ int main(int argc, const char * argv[]) {
     std::string editorial;
     int anio;
     
+    int fecha;
+    int fecha2;
+    
     while (opcion_menu!=0) {
-        print_string("\nMenú \n 1. Crear libro \n 2. Eliminar Libro \n 3. Mostrar libros antes de fecha n 4. Mostrar libros después de fecha \n  ");
+        print_string("\nMenú \n 1. Crear libro \n 2. Eliminar Libro \n 3. Mostrar libros antes de fecha \n 4. Mostrar libros después de fecha \n  ");
         std::cin >> opcion_menu;
         switch (opcion_menu) {
             case 1:
@@ -67,15 +72,20 @@ int main(int argc, const char * argv[]) {
                 break;
             case 3:
                 print_string("Fecha: ");
-                int fecha;
                 std::cin >> fecha;
                 find_before(fecha, numero_max, biblioteca);
                 break;
             case 4:
                 print_string("Fecha: ");
-                int fecha2;
+                std::cin >> fecha;
+                find_after(fecha, numero_max, biblioteca);
+                break;
+            case 5:
+                print_string("Fecha 1: ");
+                std::cin >> fecha;
+                print_string("Fecha 2: ");
                 std::cin >> fecha2;
-                find_after(fecha2, numero_max, biblioteca);
+                find_between(fecha, fecha2, numero_max, biblioteca);
                 break;
             default:
                 break;
@@ -84,6 +94,20 @@ int main(int argc, const char * argv[]) {
     
     return 0;
 }
+void find_between(int fecha, int fecha2, int n, Book bib[]){
+    if (fecha<fecha2){
+            for (int i=0; i<n; i++) {
+                if(bib[i]>0){
+                    if (bib[i]>fecha&&bib[i]<fecha2) {
+                        std::cout << bib[i];
+                    }
+                }
+            }
+    }else{
+        print_string("La primera fecha debe ser menor a la segunda");
+    }
+}
+
 void find_before(int fecha, int n, Book bib[]){
     for (int i=0; i<n; i++) {
         if(bib[i]>0){
