@@ -28,8 +28,8 @@ public:
     
     bool operator >(int);
     bool operator <(int);
-    bool has_equal_author(Book & book1, Book & book2);
-    bool has_equal_editorial(Book & book1, Book & book2);
+    bool has_equal_author(std::string);
+    bool has_equal_editorial(std::string);
     friend std::ostream & operator << (std::ostream & os, Book & book);
     
 };

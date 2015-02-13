@@ -19,6 +19,7 @@ void print_string(std::string);
 void find_before(int, int, Book[]);
 void find_after(int, int, Book[]);
 void find_between(int, int, int, Book[]);
+void find_author(std::string, int, Book[]);
 
 int main(int argc, const char * argv[]) {
     int opcion_menu= 1;
@@ -42,7 +43,7 @@ int main(int argc, const char * argv[]) {
     int fecha2;
     
     while (opcion_menu!=0) {
-        print_string("\nMenú \n 1. Crear libro \n 2. Eliminar Libro \n 3. Mostrar libros antes de fecha \n 4. Mostrar libros después de fecha \n  ");
+        print_string("\nMenú \n 1. Crear libro \n 2. Eliminar Libro \n 3. Mostrar libros antes de fecha \n 4. Mostrar libros después de fecha \n 5. Mostrar libros entre 2 fechas \n 6. Mostrar libros escritos por un autor\n  ");
         std::cin >> opcion_menu;
         switch (opcion_menu) {
             case 1:
@@ -87,12 +88,27 @@ int main(int argc, const char * argv[]) {
                 std::cin >> fecha2;
                 find_between(fecha, fecha2, numero_max, biblioteca);
                 break;
+            case 6:
+                print_string("Autor: ");
+                std::cin >> autor;
+                find_author(autor, numero_max, biblioteca);
+                break;
             default:
                 break;
         }
     }
     
     return 0;
+}
+
+void find_author(std::string author, int n, Book bib[]){
+    for (int i=0; i<n; i++) {
+        if(bib[i]>0){ //checar que por lo menos el año de publicación sea mayor a cero
+            if (bib[i].has_equal_author(author)) {
+                std::cout << bib[i];
+            }
+        }
+    }
 }
 void find_between(int fecha, int fecha2, int n, Book bib[]){
     if (fecha<fecha2){
