@@ -20,6 +20,7 @@ void find_before(int, int, Book[]);
 void find_after(int, int, Book[]);
 void find_between(int, int, int, Book[]);
 void find_author(std::string, int, Book[]);
+void find_editorial(std::string, int , Book[]);
 
 int main(int argc, const char * argv[]) {
     int opcion_menu= 1;
@@ -27,10 +28,10 @@ int main(int argc, const char * argv[]) {
     const int numero_max = 10;
     
     Book biblioteca[numero_max];
-    biblioteca[0]= Book("100 años", "Garcia Marquez", 123, 2, "meme", 1990);
-    biblioteca[1]= Book("ensayos sobre la seguera", "José Saramago", 123, 2, "meme", 1980);
-    biblioteca[2]= Book("100 años", "Garcia Marquez", 123, 2, "meme", 2000);
-    biblioteca[3]= Book("Ejemplo de libro", "Haruki Murakami", 123, 2, "meme", 2015);
+    biblioteca[0]= Book("100 años", "Garcia", 123, 2, "porrua", 1990);
+    biblioteca[1]= Book("ensayos sobre la seguera", "Saramago", 123, 2, "meme", 1980);
+    biblioteca[2]= Book("100 años", "Garcia", 123, 2, "meme", 2000);
+    biblioteca[3]= Book("Ejemplo de libro", "Murakami", 123, 2, "meme", 2015);
 
     std::string titulo;
     std::string autor;
@@ -43,13 +44,13 @@ int main(int argc, const char * argv[]) {
     int fecha2;
     
     while (opcion_menu!=0) {
-        print_string("\nMenú \n 1. Crear libro \n 2. Eliminar Libro \n 3. Mostrar libros antes de fecha \n 4. Mostrar libros después de fecha \n 5. Mostrar libros entre 2 fechas \n 6. Mostrar libros escritos por un autor\n  ");
+        print_string("\nMenú \n 1. Crear libro \n 2. Eliminar Libro \n 3. Mostrar libros antes de fecha \n 4. Mostrar libros después de fecha \n 5. Mostrar libros entre 2 fechas \n 6. Mostrar libros escritos por un autor \n 7. Mostrar libros de una editorial \n  ");
         std::cin >> opcion_menu;
         switch (opcion_menu) {
             case 1:
                 if (contador<numero_max) {
                     titulo = get_string_attribute("Título");
-                    autor = get_string_attribute("Autor");
+                    autor = get_string_attribute("Apellido de Autor");
                     paginas = get_int_attribute("Número de páginas");
                     edicion = get_int_attribute("No. de Edición");
                     editorial = get_string_attribute("Editorial");
@@ -93,6 +94,11 @@ int main(int argc, const char * argv[]) {
                 std::cin >> autor;
                 find_author(autor, numero_max, biblioteca);
                 break;
+            case 7:
+                print_string("Editorial: ");
+                std::cin >> editorial;
+                find_editorial(editorial, numero_max, biblioteca);
+                break;
             default:
                 break;
         }
@@ -101,10 +107,19 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
-void find_author(std::string author, int n, Book bib[]){
+void find_editorial(std::string _editorial, int n, Book bib[]){
     for (int i=0; i<n; i++) {
         if(bib[i]>0){ //checar que por lo menos el año de publicación sea mayor a cero
-            if (bib[i].has_equal_author(author)) {
+            if (bib[i].has_equal_editorial(_editorial)) {
+                std::cout << bib[i];
+            }
+        }
+    }
+}
+void find_author(std::string auth, int n, Book bib[]){
+    for (int i=0; i<n; i++) {
+        if(bib[i]>0){ //checar que por lo menos el año de publicación sea mayor a cero
+            if (bib[i].has_equal_author(auth)) {
                 std::cout << bib[i];
             }
         }

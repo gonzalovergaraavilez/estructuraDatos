@@ -8,12 +8,12 @@
 
 #include "Book.h"
 
-bool Book::has_equal_author(std::string author){
-    return autor == author;
+bool Book::has_equal_author(std::string _a){
+    return autor == _a;
 }
 
-bool Book::has_equal_editorial(std::string editorial){
-    return editorial == editorial;
+bool Book::has_equal_editorial(std::string _ed){
+    return editorial == _ed;
 }
 bool Book::operator >(int anio)
 {
@@ -26,7 +26,7 @@ bool Book::operator <(int anio)
 
 std::ostream & operator << (std::ostream & os, Book & book)
 {
-    os << book.autor << " (" << book.anio_pub << ")" << ". " << book.titulo << ". " << book.editorial << " " << book.edicion << ", pp " << book.n_paginas << std::endl;
+    os << book.autor << " (" << book.anio_pub << ")" << ". " << book.titulo << ". " << book.editorial << ", " << book.edicion << "ed. , pp. " << book.n_paginas << std::endl;
     
     return os;
 }
