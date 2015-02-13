@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D4E24F91A8DAF4A00607E96 /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4E24F71A8DAF4A00607E96 /* Book.cpp */; };
 		6D9A781E1A84042700721416 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9A781D1A84042700721416 /* main.cpp */; };
+		6D9A78291A84045C00721416 /* OrdenamientoGenerico.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9A78271A84045C00721416 /* OrdenamientoGenerico.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D4E24F71A8DAF4A00607E96 /* Book.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Book.cpp; sourceTree = "<group>"; };
+		6D4E24F81A8DAF4A00607E96 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		6D9A781A1A84042700721416 /* OrdenamientoGenerico */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OrdenamientoGenerico; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9A781D1A84042700721416 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6D9A78271A84045C00721416 /* OrdenamientoGenerico.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OrdenamientoGenerico.cpp; sourceTree = "<group>"; };
+		6D9A78281A84045C00721416 /* OrdenamientoGenerico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdenamientoGenerico.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				6D9A781D1A84042700721416 /* main.cpp */,
+				6D4E24F71A8DAF4A00607E96 /* Book.cpp */,
+				6D4E24F81A8DAF4A00607E96 /* Book.h */,
+				6D9A78271A84045C00721416 /* OrdenamientoGenerico.cpp */,
+				6D9A78281A84045C00721416 /* OrdenamientoGenerico.h */,
 			);
 			path = OrdenamientoGenerico;
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4E24F91A8DAF4A00607E96 /* Book.cpp in Sources */,
+				6D9A78291A84045C00721416 /* OrdenamientoGenerico.cpp in Sources */,
 				6D9A781E1A84042700721416 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +244,7 @@
 				6D9A78231A84042700721416 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
