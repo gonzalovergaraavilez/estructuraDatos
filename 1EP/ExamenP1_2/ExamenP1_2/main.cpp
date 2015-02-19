@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Persona.h"
 #include "Venta.h"
+#include "OrdenamientoGenerico.h"
 
 int main(int argc, const char * argv[]) {
     int ventas_totales = 0;

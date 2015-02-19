@@ -11,6 +11,7 @@
 		6DFDF4EC1A9675880096C963 /* Persona.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DFDF4EA1A9675880096C963 /* Persona.cpp */; };
 		6DFDF4EF1A967A140096C963 /* Venta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DFDF4ED1A967A140096C963 /* Venta.cpp */; };
 		6DFDF4F21A967AEE0096C963 /* Vehiculo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DFDF4F01A967AEE0096C963 /* Vehiculo.cpp */; };
+		6DFDF4F51A967F2B0096C963 /* OrdenamientoGenerico.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DFDF4F31A967F2B0096C963 /* OrdenamientoGenerico.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		6DFDF4EE1A967A140096C963 /* Venta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venta.h; sourceTree = "<group>"; };
 		6DFDF4F01A967AEE0096C963 /* Vehiculo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vehiculo.cpp; sourceTree = "<group>"; };
 		6DFDF4F11A967AEE0096C963 /* Vehiculo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehiculo.h; sourceTree = "<group>"; };
+		6DFDF4F31A967F2B0096C963 /* OrdenamientoGenerico.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OrdenamientoGenerico.cpp; sourceTree = "<group>"; };
+		6DFDF4F41A967F2B0096C963 /* OrdenamientoGenerico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdenamientoGenerico.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				6DFDF4E31A96757D0096C963 /* main.cpp */,
+				6DFDF4F31A967F2B0096C963 /* OrdenamientoGenerico.cpp */,
+				6DFDF4F41A967F2B0096C963 /* OrdenamientoGenerico.h */,
 				6DFDF4EA1A9675880096C963 /* Persona.cpp */,
 				6DFDF4ED1A967A140096C963 /* Venta.cpp */,
 				6DFDF4EE1A967A140096C963 /* Venta.h */,
@@ -134,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DFDF4F21A967AEE0096C963 /* Vehiculo.cpp in Sources */,
+				6DFDF4F51A967F2B0096C963 /* OrdenamientoGenerico.cpp in Sources */,
 				6DFDF4EC1A9675880096C963 /* Persona.cpp in Sources */,
 				6DFDF4E41A96757D0096C963 /* main.cpp in Sources */,
 				6DFDF4EF1A967A140096C963 /* Venta.cpp in Sources */,
