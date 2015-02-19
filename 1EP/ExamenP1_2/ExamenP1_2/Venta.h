@@ -24,7 +24,7 @@ public:
     int get_monto();
     int get_id_vehiculo();
     int get_id_persona();
-    
+    friend std::ostream & operator << (std::ostream & os,const Venta & venta);
 };
 
 
