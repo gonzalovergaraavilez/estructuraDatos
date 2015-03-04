@@ -48,8 +48,9 @@ int main(int argc, const char * argv[]) {
 }
 
 bool isPrime(int n){
+    if (n == 0 || n == 1 || n<0) return false; //Asumiendo que 1 no es número primo
     for (int i=2; i<n; i++) {
-        if (n % i == 0 && i != n) return false;
+        if (n % i == 0) return false;
     }
     return true;
 }
