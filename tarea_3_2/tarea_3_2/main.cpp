@@ -46,10 +46,5 @@ int main(int argc, const char * argv[]) {
     LinkedList<int> * p_list  = new LinkedList<int>();
     p_list = n_list->unionWhith(*m_list);
     std::cout << *p_list << std::endl;
-    
-    /*Free Memory*/
-   // n_list->~LinkedList();
-    //m_list->~LinkedList();
-    
     return 0;
 }
