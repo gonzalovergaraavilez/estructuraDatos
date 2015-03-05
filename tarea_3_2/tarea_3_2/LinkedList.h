@@ -64,7 +64,7 @@ namespace gva {
         
         Node<T> * operator [](const int);
         
-        LinkedList<T> unionWhith (LinkedList<T>);
+        LinkedList<T> * unionWhith (LinkedList<T> &);
         
     };
     
@@ -269,28 +269,35 @@ namespace gva {
     }
     
     template  <class T>
-    LinkedList<T> LinkedList<T>::unionWhith (LinkedList<T> secondList){
+    LinkedList<T>* LinkedList<T>::unionWhith (LinkedList<T> & secondList){
         LinkedList<int> * new_list  = new LinkedList<int>();
-        int pos = 0;
+
         Node<T> * tmp = _first;
         
         while (tmp != nullptr)
         {
-            new_list->insertBack(tmp);
+            new_list->insertBack(tmp->getInfo());
             tmp = tmp->getNext();
-            ++pos;
         }
-        tmp = secondList->first();
         
-        while (tmp != nullptr)
+        Node<T> * tmp_j = secondList.first();
+        while (tmp_j != nullptr)
         {
-            if (secondList->at(tmp)!=-1) {
-                new_list->insertBack(tmp);
+            int found = 0;
+            tmp = new_list->first();
+            while (tmp != nullptr) {
+                if (tmp_j->getInfo() == tmp->getInfo()) {
+                    found = 1;
+                }
+                tmp = tmp->getNext();
             }
-            tmp = tmp->getNext();
-            ++pos;
+            if (found==0) {
+                new_list->insertBack(tmp_j->getInfo());
+            }
+           
+            tmp_j = tmp_j->getNext();
         }
-        
+        return new_list;
     }
 }
 

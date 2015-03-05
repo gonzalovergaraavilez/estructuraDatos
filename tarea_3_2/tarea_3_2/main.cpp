@@ -43,11 +43,13 @@ int main(int argc, const char * argv[]) {
     }
     
     //std::cout << *m_list << std::endl;
-    
+    LinkedList<int> * p_list  = new LinkedList<int>();
+    p_list = n_list->unionWhith(*m_list);
+    std::cout << *p_list << std::endl;
     
     /*Free Memory*/
-    n_list->~LinkedList();
-    m_list->~LinkedList();
+   // n_list->~LinkedList();
+    //m_list->~LinkedList();
     
     return 0;
 }
