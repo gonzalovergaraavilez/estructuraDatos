@@ -32,6 +32,11 @@ int main(int argc, const char * argv[]) {
     std::cin >> n;
     std::cout << std::endl;
     
+    if (p>q){
+        int tmp = p;
+        p = q;
+        q = tmp;
+    }
     int counter = 0;
     
     for (int i=p; i<=q; i++) {
@@ -44,6 +49,7 @@ int main(int argc, const char * argv[]) {
     }
     if(counter<n) std::cout << "No hay tantos números primos en el rango, pero bueno, van en orden descendente:" << std::endl;
     std::cout << *numeros_primos << std::endl;
+    numeros_primos->~LinkedList();
     return 0;
 }
 
