@@ -65,6 +65,10 @@ namespace gva {
         Node<T> * operator [](const int);
         
         LinkedList<T> * unionWhith (LinkedList<T> &);
+        LinkedList<T> * minus (LinkedList<T> &);
+        LinkedList<T> * multiplyBy (LinkedList<T> &);
+        LinkedList<T> * intersectWith (LinkedList<T> &);
+        
         
     };
     
@@ -299,6 +303,77 @@ namespace gva {
         }
         return new_list;
     }
+    
+    template  <class T>
+    LinkedList<T> * LinkedList<T>::minus (LinkedList<T> & secondList){
+        LinkedList<int> * new_list  = new LinkedList<int>();
+        
+        Node<T> * tmp = _first;
+        
+        while (tmp != nullptr)
+        {
+            new_list->insertBack(tmp->getInfo());
+            tmp = tmp->getNext();
+        }
+        
+        Node<T> * tmp_j = secondList.first();
+        while (tmp_j != nullptr)
+        {
+            tmp = new_list->first();
+            while (tmp != nullptr) {
+                if (tmp_j->getInfo() == tmp->getInfo()) {
+                    new_list->remove(new_list->at(tmp));
+                }
+                tmp = tmp->getNext();
+            }
+            
+            tmp_j = tmp_j->getNext();
+        }
+        return new_list;
+
+    }
+    
+    template  <class T>
+    LinkedList<T> * LinkedList<T>::multiplyBy (LinkedList<T> & secondList){
+        LinkedList<int> * new_list  = new LinkedList<int>();
+        
+        Node<T> * tmp = _first;
+        Node<T> * tmp_j = secondList.first();
+        while (tmp != nullptr)
+        {
+            tmp_j = secondList.first();
+            while (tmp_j != nullptr) {
+                new_list->insertBack(tmp->getInfo()*tmp_j->getInfo());
+                tmp_j = tmp_j->getNext();
+            }
+            
+            tmp = tmp->getNext();
+        }
+        return new_list;
+    }
+    
+    template  <class T>
+    LinkedList<T> * LinkedList<T>::intersectWith (LinkedList<T> & secondList){
+        LinkedList<int> * new_list  = new LinkedList<int>();
+        
+        Node<T> * tmp = _first;
+        Node<T> * tmp_j = secondList.first();
+        
+        while (tmp_j != nullptr)
+        {
+            tmp = _first;
+            while (tmp != nullptr) {
+                if (tmp_j->getInfo() == tmp->getInfo()) {
+                    new_list->insertBack(tmp->getInfo());
+                }
+                tmp = tmp->getNext();
+            }
+            
+            tmp_j = tmp_j->getNext();
+        }
+        return new_list;
+    }
+    
 }
 
 #endif /* defined(__tarea_3_2__LinkedList__) */
