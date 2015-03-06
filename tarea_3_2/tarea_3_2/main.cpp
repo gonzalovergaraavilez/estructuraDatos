@@ -9,7 +9,6 @@
 #include <iostream>
 #include "Node.h"
 #include "LinkedList.h"
-bool isPrime(int);
 
 int main(int argc, const char * argv[]) {
     using namespace gva;
