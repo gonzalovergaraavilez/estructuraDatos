@@ -71,10 +71,6 @@ int main(int argc, const char * argv[]) {
         default:
             break;
     }
-   
-    
-    
-    
     
     std::cout << "N: " << std::endl << *n_list << std::endl;
     std::cout << "M: " << std::endl << *m_list << std::endl;
