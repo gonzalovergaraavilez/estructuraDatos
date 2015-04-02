@@ -19,9 +19,6 @@ int main(int argc, const char * argv[]) {
     
     using namespace gva;
     
-    /* Demostrar el uso de la clase genérica DCircularLinkedList<T> */
-    
-    /* Declaración de una lista de enteros */
     DCircularLinkedList<LinkedList<char> *>  lineas;
     
     std::ofstream myfile;
@@ -61,48 +58,19 @@ int main(int argc, const char * argv[]) {
     noecho();
     cbreak();
     keypad(stdscr, TRUE);
-    
-    printw("Welcome");
-    
-    /*subwindow = newwin(LINES-OFFSET,
-                           COLS,
-                           OFFSET,
-                           0);*/
-    
-    //box(subwindow, 0 , 0);
-    
-    
     int ch;
     int x, y;
     x = 123;
     clear();
     refresh();
     
-    /*wclear(subwindow);
-    printw("The pressed key is ");
-    attron(A_BOLD);
-    printw("%c", ch);
-    wrefresh(subwindow);
-    box(subwindow, 0 , 0);
-    attroff(A_BOLD);*/
-    
-    
-    
-    //Node
-    /*
-    Node<char> * tmpnode;
-    tmpnode = lineas.first()->getInfo()->first();
-    do{
-        std::cout << tmpnode->getInfo();
-        tmpnode = tmpnode->getNext();
-        
-    }while (tmpnode!=nullptr);*/
+    /*Print file text from structures */
 
     Node< LinkedList<char> * > * tmp = lineas.first();
      Node<char> *charnode = tmp->getInfo()->first();
     do{
      while (charnode != nullptr) {
-         std::cout <<charnode->getInfo();
+         std::cout <<charnode->getInfo(); //addch() for ncurses
      charnode = charnode->getNext();
      }
      tmp = tmp->getNext();
@@ -111,6 +79,7 @@ int main(int argc, const char * argv[]) {
      
      }while (tmp != lineas.first());
     
+    /*ncurses loop */
     while((ch = getch()) != 'x'){
         getyx(stdscr, y, x);
         switch (ch) {
@@ -128,13 +97,7 @@ int main(int argc, const char * argv[]) {
                 break;
         }
     }
-    
-    
-
-    /* Imprimir el contenido de la lista */
-    //std::cout << lineas << std::endl;
-    
-    
+    /*ncurses*/
     delwin(stdscr);
     
     endwin();
