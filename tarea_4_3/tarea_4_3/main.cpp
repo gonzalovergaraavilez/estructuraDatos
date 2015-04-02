@@ -19,37 +19,8 @@ int main(int argc, const char * argv[]) {
     
     using namespace gva;
     
-    DCircularLinkedList<LinkedList<char> *>  lineas;
-    
-    std::ofstream myfile;
-    myfile.open ("fil2e.txt");
-    myfile << "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-    myfile.close();
-    
-    LinkedList<char> *tempLine = new LinkedList<char>;;
-    std::string line;
-    char character;
-    std::ifstream myfile2 ("fil2e.txt");
-    if (myfile2.is_open())
-    {
-        while (std::getline(myfile2, line))
-        {
-            //std::cout << line;
-            tempLine = new LinkedList<char>;
-            std::stringstream ss;
-            ss.str(line);
-            while(ss >> character){
-                tempLine->insertBack(character);
-                //std::cout << character;
-            }
-            //std::cout << std::endl;
-            lineas.insertBack(tempLine);
-        }
-        myfile2.close();
-    }else std::cout << "Unable to open file";
-    
-    delete tempLine;
-    
+    DCircularLinkedList<LinkedList<std::string> *>  lineas;
+    LinkedList<std::string> palabras;
 
     
     /*ncurses*/
@@ -64,23 +35,48 @@ int main(int argc, const char * argv[]) {
     clear();
     refresh();
     
-    /*Print file text from structures */
+    std::ofstream myfile;
+        myfile.open ("fil2e.txt");
+        myfile << "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod \ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n";
+        myfile.close();
 
-    Node< LinkedList<char> * > * tmp = lineas.first();
-     Node<char> *charnode = tmp->getInfo()->first();
-    do{
-     while (charnode != nullptr) {
-         std::cout <<charnode->getInfo(); //addch() for ncurses
-     charnode = charnode->getNext();
-     }
-     tmp = tmp->getNext();
-     charnode = tmp->getInfo()->first();
-     //std::cout << std::endl;
-     
-     }while (tmp != lineas.first());
+    LinkedList<std::string> *tempLine = new LinkedList<std::string>;
+        std::string line;
+        std::string word;
+        std::ifstream myfile2 ("fil2e.txt");
+        if (myfile2.is_open())
+            {
+                while ( std::getline (myfile2,line) )
+                        {
+                            tempLine = new LinkedList<std::string>;
+                            std::stringstream ss(line);
+                                while(ss >> word){
+                                        tempLine->insertBack(word);
+                                    }
+                                lineas.insertBack(tempLine);
+                            }
+                    myfile2.close();
+                }else std::cout << "Unable to open file";
+    delete tempLine;
     
+    Node< LinkedList<std::string> * > * tmp = lineas.first();
+    Node<std::string> *charnode = tmp->getInfo()->first();
+    clear();
+    do{
+        while (charnode != nullptr) {
+            printw("%s ",(charnode->getInfo()).c_str()); //addch() for ncurses
+            charnode = charnode->getNext();
+            refresh();
+        }
+        printw("\n");
+        //std::cout << std::endl;
+        tmp = tmp->getNext();
+        charnode = tmp->getInfo()->first();
+        //std::cout << std::endl;
+    }while (tmp != lineas.first());
     /*ncurses loop */
     while((ch = getch()) != 'x'){
+        
         getyx(stdscr, y, x);
         switch (ch) {
             case KEY_LEFT:
@@ -96,6 +92,8 @@ int main(int argc, const char * argv[]) {
                 move(y+1, x);
                 break;
         }
+        refresh();
+        
     }
     /*ncurses*/
     delwin(stdscr);
