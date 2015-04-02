@@ -10,6 +10,10 @@
 #include "DCircularLinkedList.h"
 #include <fstream>
 #include <sstream>
+#include <ncurses.h>
+
+#define OFFSET  3
+DCircularLinkedList<char> newCircularList();
 
 int main(int argc, const char * argv[]) {
     
@@ -18,100 +22,123 @@ int main(int argc, const char * argv[]) {
     /* Demostrar el uso de la clase genérica DCircularLinkedList<T> */
     
     /* Declaración de una lista de enteros */
-    DCircularLinkedList<std::string> palabras;
-    DCircularLinkedList<DCircularLinkedList<std::string> *>  lineas;
-
-    
-
-    
-    /* Determinar si la lista está vacía */
-    //std::cout  << "Empty = " << (numeros->empty() ? "true" : "false") << std::endl;
-    
-    
-    /* Insertar elemento en la lista */
-    
-    
-    /* Determinar el tamaño */
-    //std::cout  << "Size = " << numeros->size() << std::endl;
-    
-    /* Obtener el primer elemento */
-    //std::cout  << "First = " << *numeros->first() << std::endl;
-    
-    /* Obtener el último elemento */
-    //std::cout  << "Last = " << *numeros->last() << std::endl;
-    
-    /* Crear un nuevo nodo  e insertarlo en la lista */
-    //Node<int> * newnode = new Node<int>(30);
-    
-    //numeros->insert(newnode, 6);
-    
-    
-    
-    /* Obtener el iésimo elemento  */
-    /*int pos = 5;
-    std::cout  << "At(" << pos << ") Previous = " << *(numeros->at(pos)->getPrevious()) << std::endl;
-    std::cout  << "At(" << pos << ") = " << *(numeros->at(pos)) << std::endl;
-    std::cout  << "At(" << pos << ") Next = " << *(numeros->at(pos)->getNext()) << std::endl;*/
-    
-    /* Obtener la posición de un elemento dado un apuntador al mismo */
-   // Node<int> * node = numeros->at(0);
-    
-    //std::cout  << "Node está en posición " << numeros->LinkedList::at(node) << std::endl;
-    
-    /* Imprimir el contenido de la lista */
-    //std::cout << *numeros << std::endl;
-    
-    /* Borrar un nodo de la lista */
-    /*Node<int> * removenode = numeros->remove(6);
-    
-    if (removenode) {
-        std::cout << " Nodo a borrar = " << *removenode << std::endl;
-        delete removenode;
-    }*/
-    
-    /* Imprimir el contenido de la lista */
-    //std::cout << *numeros << std::endl;
-    /* Determinar el tamaño */
-    //std::cout  << "Size = " << numeros->size() << std::endl;
-    
-    /* Obtener el iésimo elemento  */
-    /*pos = 5;
-    std::cout  << "At(" << pos << ") Previous = " << *(numeros->at(pos)->getPrevious()) << std::endl;
-    std::cout  << "At(" << pos << ") = " << *(numeros->at(pos)) << std::endl;
-    std::cout  << "At(" << pos << ") Next = " << *(numeros->at(pos)->getNext()) << std::endl;
-    
-    */
+    DCircularLinkedList<LinkedList<char> *>  lineas;
     
     std::ofstream myfile;
     myfile.open ("fil2e.txt");
-    myfile << "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod \ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n";
+    myfile << "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
     myfile.close();
     
-    std::stringstream ss;
-    
+    LinkedList<char> *tempLine = new LinkedList<char>;;
     std::string line;
-    std::string word;
+    char character;
     std::ifstream myfile2 ("fil2e.txt");
     if (myfile2.is_open())
     {
-        while ( getline (myfile2,line) )
+        while (std::getline(myfile2, line))
         {
+            //std::cout << line;
+            tempLine = new LinkedList<char>;
+            std::stringstream ss;
             ss.str(line);
-            while(ss >> word){
-                palabras.insertBack(word);
+            while(ss >> character){
+                tempLine->insertBack(character);
+                //std::cout << character;
             }
-            lineas.insertBack(&palabras);
+            //std::cout << std::endl;
+            lineas.insertBack(tempLine);
         }
         myfile2.close();
-    }
+    }else std::cout << "Unable to open file";
+    
+    delete tempLine;
+    
 
-    else std::cout << "Unable to open file";
+    
+    /*ncurses*/
+    //WINDOW *subwindow;
+    initscr();
+    noecho();
+    cbreak();
+    keypad(stdscr, TRUE);
+    
+    printw("Welcome");
+    
+    /*subwindow = newwin(LINES-OFFSET,
+                           COLS,
+                           OFFSET,
+                           0);*/
+    
+    //box(subwindow, 0 , 0);
+    
+    
+    int ch;
+    int x, y;
+    x = 123;
+    clear();
+    refresh();
+    
+    /*wclear(subwindow);
+    printw("The pressed key is ");
+    attron(A_BOLD);
+    printw("%c", ch);
+    wrefresh(subwindow);
+    box(subwindow, 0 , 0);
+    attroff(A_BOLD);*/
+    
+    
+    
+    //Node
+    /*
+    Node<char> * tmpnode;
+    tmpnode = lineas.first()->getInfo()->first();
+    do{
+        std::cout << tmpnode->getInfo();
+        tmpnode = tmpnode->getNext();
+        
+    }while (tmpnode!=nullptr);*/
+
+    Node< LinkedList<char> * > * tmp = lineas.first();
+     Node<char> *charnode = tmp->getInfo()->first();
+    do{
+     while (charnode != nullptr) {
+         std::cout <<charnode->getInfo();
+     charnode = charnode->getNext();
+     }
+     tmp = tmp->getNext();
+     charnode = tmp->getInfo()->first();
+     //std::cout << std::endl;
+     
+     }while (tmp != lineas.first());
+    
+    while((ch = getch()) != 'x'){
+        getyx(stdscr, y, x);
+        switch (ch) {
+            case KEY_LEFT:
+                move(y, x-1);
+                break;
+            case KEY_RIGHT:
+                move(y, x+1);
+                break;
+            case KEY_UP:
+                move(y-1, x);
+                break;
+            case KEY_DOWN:
+                move(y+1, x);
+                break;
+        }
+    }
+    
+    
 
     /* Imprimir el contenido de la lista */
-    std::cout << lineas << std::endl;
+    //std::cout << lineas << std::endl;
     
     
-    /* Borrar toda la lista y liberar la memoria de todos los nodos */
+    delwin(stdscr);
+    
+    endwin();
     
     return 0;
 }
+
