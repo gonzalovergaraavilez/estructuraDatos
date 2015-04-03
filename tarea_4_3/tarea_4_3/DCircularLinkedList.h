@@ -28,6 +28,7 @@ public:
     virtual Node<T> * last();
     
     /* Insertar un elemento nuevo */
+    void insert(T element, int) override;
     void insert(Node<T> *, int) override;
     
     /* Eliminar un elemento y regresar un apuntador al mismo.
@@ -59,6 +60,14 @@ template <class T>
 Node<T> * DCircularLinkedList<T>::last()
 {
     return this->_last;
+}
+
+template  <class T>
+void DCircularLinkedList<T>::insert(T element, int position)
+{
+    Node<T> * newnode = new Node<T>(element);
+    this->insert(newnode, position);
+    
 }
 
 template  <class T>
