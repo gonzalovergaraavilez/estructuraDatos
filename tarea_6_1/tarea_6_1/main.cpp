@@ -49,8 +49,9 @@ int main(int argc, const char * argv[]) {
     
     std::cout << *puerto;
     
-    /*Al intentar agregar este contenedor, el sistema marca lleno*/
-    puerto->addContainer(container3);
+    /*Al intentar agregar este contenedor, el sistema marca lleno, regresando false*/
+    bool success = puerto->addContainer(container3);
+    std::cout << success << std::endl;
     
     delete product1;
     delete product2;
