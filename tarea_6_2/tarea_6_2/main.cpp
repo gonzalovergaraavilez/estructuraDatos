@@ -13,7 +13,7 @@ int main(int argc, const char * argv[]) {
     Estudiante *e2 = new Estudiante("Dos");
     Estudiante *e3 = new Estudiante("Tres");
     
-    //Tiempo total de 4 en la universidad;
+    //Tiempo total de 4 años en la universidad; Los porcentajes y promedios se toman asumiendo este tiempo.
     e1->addRelacion(e2, 2.0);
     e1->addRelacion(e1, 0.2);
     e1->addRelacion(e3, 1.2);
