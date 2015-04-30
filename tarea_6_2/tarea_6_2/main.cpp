@@ -32,6 +32,7 @@ int main(int argc, const char * argv[]) {
     delete e1;
     delete e2;
     delete e3;
+    delete uni;
     
     
     return 0;
