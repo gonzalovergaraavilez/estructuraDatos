@@ -9,6 +9,11 @@
 #ifndef tarea_6_2_Estudiante_h
 #define tarea_6_2_Estudiante_h
 #include <vector>
+
+/*Intenté dejar las dos clases en archivos separados pero al intentar usar el método ->getNombre() decía "member access into incomplete type"
+                                         en     os << "Con: " << relacion.relacionado->getNombre() << "\t\t\t";
+
+ */
 class Relacion;
 
 class Estudiante{
