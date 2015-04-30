@@ -42,12 +42,12 @@ std::ostream & operator << (std::ostream & os, Puerto  & puerto)
 }
 bool Puerto::addContainer(Contenedor *value){
     if(pilas.empty()){
-        pilas.push_back(new Pila(0,n));
+        pilas.push_back(new Pila(1,n));
     }
-        pilas.back()->setIDno((int)pilas.size());
         if((!pilas.back()->addContainer(value))&&(pilas.back()->getN()==pilas.back()->getContainers().size())){
             if(pilas.size()<m){
                 pilas.push_back(new Pila);
+                pilas.back()->setIDno((int)pilas.size());
                 pilas.back()->addContainer(value);
                 total+=value->getTotal();
                 return true;

@@ -13,7 +13,7 @@
 int main(int argc, const char * argv[]) {
     
     //M y N definidos
-    int n = 3;
+    int n = 4;
     int m = 2;
     Producto *product1 = new Producto("naranja", 20, 2);
     Producto *product2 = new Producto("leche", 1, 33);
@@ -45,6 +45,11 @@ int main(int argc, const char * argv[]) {
     std::cout << *puerto;
     
     puerto->addContainer(container2);
+    puerto->addContainer(container3);
+    
+    std::cout << *puerto;
+    
+    /*Al intentar agregar este contenedor, el sistema marca lleno*/
     puerto->addContainer(container3);
     
     delete product1;
