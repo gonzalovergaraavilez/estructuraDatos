@@ -47,8 +47,6 @@ int main(int argc, const char * argv[]) {
     puerto->addContainer(container2);
     puerto->addContainer(container3);
     
-    
-    
     delete product1;
     delete product2;
     delete product3;
