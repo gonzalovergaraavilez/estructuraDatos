@@ -28,6 +28,8 @@
 		6DBBE86C1AF750EF00E8FBFC /* DCircularLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCircularLinkedList.h; sourceTree = "<group>"; };
 		6DBBE86D1AF7510A00E8FBFC /* LinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedList.h; sourceTree = "<group>"; };
 		6DBBE86E1AF7513200E8FBFC /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		6DBBE86F1AF7619100E8FBFC /* Point.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Point.h; sourceTree = "<group>"; };
+		6DBBE8701AF794BD00E8FBFC /* Step.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Step.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				6DBBE8651AF750A500E8FBFC /* main.cpp */,
+				6DBBE8701AF794BD00E8FBFC /* Step.h */,
+				6DBBE86F1AF7619100E8FBFC /* Point.h */,
 				6DBBE86C1AF750EF00E8FBFC /* DCircularLinkedList.h */,
 				6DBBE86D1AF7510A00E8FBFC /* LinkedList.h */,
 				6DBBE86E1AF7513200E8FBFC /* Node.h */,
@@ -238,6 +242,7 @@
 				6DBBE86B1AF750A500E8FBFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
