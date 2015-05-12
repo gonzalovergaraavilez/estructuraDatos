@@ -25,6 +25,9 @@
 /* Begin PBXFileReference section */
 		6D98A7671B026B4E0081FF2A /* P1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = P1; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D98A76A1B026B4E0081FF2A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6D98A7711B026BAC0081FF2A /* Graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graph.h; sourceTree = "<group>"; };
+		6D98A7721B026BC90081FF2A /* Edge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
+		6D98A7731B026BE40081FF2A /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				6D98A76A1B026B4E0081FF2A /* main.cpp */,
+				6D98A7711B026BAC0081FF2A /* Graph.h */,
+				6D98A7721B026BC90081FF2A /* Edge.h */,
+				6D98A7731B026BE40081FF2A /* Vertex.h */,
 			);
 			path = P1;
 			sourceTree = "<group>";
